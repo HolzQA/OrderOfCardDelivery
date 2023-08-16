@@ -1,6 +1,5 @@
 package ru.netology;
 
-import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.text.DateFormat;
@@ -21,7 +20,6 @@ public class RegistrationTest {
 
     @BeforeEach
     void setup() {
-        Configuration.headless = true;
         open("http://localhost:9999/");
     }
 
@@ -36,7 +34,9 @@ public class RegistrationTest {
         $("[data-test-id='phone'] input").setValue("+73846578392");
         $("[data-test-id=agreement]").click();
         $x("//span[text()='Забронировать']").click();
-        $x("//div[contains(@class, 'notification_visible')]").shouldBe(visible, Duration.ofSeconds(15));
+        $x("//div[contains(@class, 'notification_visible')]")
+                .shouldBe(visible, Duration.ofSeconds(15))
+                .shouldHave(exactText("Успешно! Встреча успешно забронирована на " + dateFormat.format(cal.getTime()).trim()));
     }
 
     @Test
@@ -50,7 +50,9 @@ public class RegistrationTest {
         $("[data-test-id='phone'] input").setValue("+73846578392");
         $("[data-test-id=agreement]").click();
         $x("//span[text()='Забронировать']").click();
-        $x("//div[contains(@class, 'notification_visible')]").shouldBe(visible, Duration.ofSeconds(15));
+        $x("//div[contains(@class, 'notification_visible')]")
+                .shouldBe(visible, Duration.ofSeconds(15))
+                .shouldHave(exactText("Успешно! Встреча успешно забронирована на " + dateFormat.format(cal.getTime()).trim()));
     }
 
     @Test
@@ -64,7 +66,9 @@ public class RegistrationTest {
         $("[data-test-id='phone'] input").setValue("+73846578392");
         $("[data-test-id=agreement]").click();
         $x("//span[text()='Забронировать']").click();
-        $x("//div[contains(@class, 'notification_visible')]").shouldBe(visible, Duration.ofSeconds(15));
+        $x("//div[contains(@class, 'notification_visible')]")
+                .shouldBe(visible, Duration.ofSeconds(15))
+                .shouldHave(exactText("Успешно! Встреча успешно забронирована на " + dateFormat.format(cal.getTime()).trim()));
     }
 
 }
