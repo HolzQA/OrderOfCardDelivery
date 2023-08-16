@@ -18,11 +18,6 @@ public class RegistrationTest {
     private static final Date currentDate = new Date();
     private static final Calendar cal = Calendar.getInstance();
 
-//    @BeforeEach
-//    void setup() {
-//        open("http://localhost:9999/");
-//    }
-
     @Test
     void shouldPassWithCyrillicAnd3DaysAfterToday() {
         open("http://localhost:9999/");
