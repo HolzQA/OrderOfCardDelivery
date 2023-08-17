@@ -14,4 +14,4 @@ install:
   - chmod +x gradlew
 
 build_script:
-  - ./gradlew :test --tests --info   # запускаем тест, флаг --info позволяет выводить больше информации
+  - ./gradlew :test --tests "DNAnalyzer.MainTest.mainClassshouldExist" --info   # запускаем тест, флаг --info позволяет выводить больше информации
